@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>welcome to my CV page </h1>
+click any of below for details 
+
+<style >
+  .dev{
+    color:black;
+    font-size:35px;
+  }
+
+</style>
+
+
+<div class="container" >
+
+    <li>  <a class="dev" href="{% url 'degree'  %}" >Degree</a></li>
+    <li><a class="dev" href="{% url 'education'  %}">Education</a></li>
+    <li><a class="dev" href="{% url 'computerskills'  %}">Computer skills</a></li>
+    <li><a class="dev" href="{% url 'industrialskills'  %}">Industrial skills</a></li>
+    <li><a class="dev" href="{% url 'otherskills'  %}">Certificates & Licenses</a>></li>
+    <li><a class="dev" href="{% url 'internships'  %}">Internships</a></li>
+    <li><a class="dev" href="{% url 'volunteering'  %}">Volunteering</a></li>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

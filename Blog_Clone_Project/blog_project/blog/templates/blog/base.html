@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Blog Project</title>
+        <!-- Latest compiled and minified CSS -->
+
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        {# MEDIUM STYLE EDITOR#}
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+        {# Custom CSS#}
+        <link rel="stylesheet" href="{% static 'css/k.css' %}">
+
+        {# Fonts#}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+
+
+        </script>
+        <style >
+        *{
+          padding: 0;
+          margin: 0;
+          text-decoration: none;
+          list-style: none;
+          box-sizing: border-box;
+
+        }
+        nav ul li a{
+          color: white;
+          font-size: 17px;
+          text-transform: uppercase;
+          padding: 7px 13px;
+          border-radius: 3px;
+
+        }
+        body{
+          font-family: Montserrat;
+          background-image: url({% static 'img/b1.png' %});
+
+
+
+        }
+        a.d1,a:hover{
+          background: #1b9bff;
+          transition: .5s;
+        }
+        nav{
+          background: #0082e6;
+          height: 80px;
+          width: 100%;
+        }
+        label.logo{
+          color: white;
+          font-size: 35px;
+          line-height: 80px;
+          padding: 0 100px;
+          font-weight: bold;
+        }
+        nav ul{
+          float: right;
+          margin-right: 20px;
+
+        }
+        nav ul li{
+          display: inline-block;
+          line-height: 80px;
+          margin: 0 5 px;
+
+
+        }
+
+
+
+
+
+
+
+        </style>
+
+</head>
+
+
+
+
+<body >
+
+
+
+
+
+
+
+  <nav class="DE">
+    <label class="logo" >My Blog</label>
+    <ul>
+      <li><a href="{% url 'post_list' %}" class="d1">Home</a></li>
+      <img src="" alt="">
+      <img src="" alt="">
+      <img src="" alt="">
+      <li><a href="{% url 'cvlists'%}" class="d1">My Cv</a></li>
+      <img src="" alt="">
+      <img src="" alt="">
+      <img src="" alt="">
+      <li><a href="{% url 'about'%}"class="d1">About me</a></li>
+      <img src="" alt="">
+      <img src="" alt="">
+      <img src="" alt="">
+      <li><a href="https://www.github.com/Deepanshus98" class="d1">My Github Profile</a></li>
+      <img src="" alt="">
+      <img src="" alt="">
+      <img src="" alt="">
+      <li><a href="https://www.linkedin.com/in/deepanshu-sharma-18a916196" class="d1">LinkedIn Profile</a></li>
+
+    </ul>
+
+
+
+
+
+      <ul  class="btn btn-primary dropdown-toggle ">
+
+
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'post_new' %}" >New Post</a>
+        </li>
+
+
+        <li>
+          <a href="{% url 'post_draft_list' %}">Drafts</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}" >Log out</a>
+        </li>
+
+        <li>
+          <a >Welcome: {{ user.username }}</a>
+        </li>
+          {% else %}
+          <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
+        {% endif %}
+
+      </ul>
+
+
+
+</nav>
+
+
+  {# The actual blog posts#}
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                  <div class="blog_posts">
+
+                    {% block content %}
+                    {% endblock %}
+
+                  </div>
+
+                </div>
+            </div>
+        </div class="box">
+
+
+        </div>
+
+
+
+{# SCRIPTS#}
+
+<script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+
+</body>
+</html>
